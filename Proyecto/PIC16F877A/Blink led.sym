@@ -1,0 +1,63 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+021     MAIN.@SCRATCH1
+022     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  SisInit
+00000B  @delay_ms1
+00001F  MAIN
+00001F  @cinit1
+000029  @cinit2
+
+Project Directory:
+    E:\Martin Hdez\Desktop\CCS 16F\877A\Práctica 1\
+
+Project Files:
+    Blink led.c                                             [23-feb.-22 17:36  CRC=889692A1]
+    ..\..\..\..\..\Program Files\PICC\Devices\16F877A.h     [15-ene.-18 15:53  CRC=63418C39]
+
+Source signature=4F19AB13
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=DD48
+
+Units:
+    Blink led (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   Blink led.xsym
+    Errors:      Blink led.err
+    Ext Symbols: Blink led.esym
+    INHX8:       Blink led.hex
+    Symbols:     Blink led.sym
+    List:        Blink led.lst
+    Debug/COFF:  Blink led.cof
+    Project:     Blink led.ccspjt
+    Call Tree:   Blink led.tre
+    Statistics:  Blink led.STA

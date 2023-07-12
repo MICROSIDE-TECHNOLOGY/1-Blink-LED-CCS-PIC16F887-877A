@@ -1,0 +1,23 @@
+[PROJECT]
+Target=Blink led.hex
+Processor_Text=PIC16F887
+CCSVersion=5.076
+Compiler=PCM
+[Target Data]
+FileList=Blink led.c
+[Blink led.c]
+Type=4
+[mru-list]
+1=Blink led.c
+[Units]
+Count=1
+1=Blink led (main)
+
+[defines]
+buildcount=1
+
+[ProjectLog]
+Days=1
+D1=23-02-2022
+D1_L=1
+D1_L1=[63529]Project Closed.
