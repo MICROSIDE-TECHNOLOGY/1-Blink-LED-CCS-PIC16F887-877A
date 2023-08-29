@@ -1,8 +1,10 @@
-CCS PCM C Compiler, Version 5.076, 56587               23-feb.-22 17:37
+CCS PCM C Compiler, Version 5.115d, 1               29-ago.-23 13:41
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
 
-               Filename:   E:\Martin Hdez\Desktop\CCS 16F\887\Práctica 1\Blink led.lst
+               Filename:   C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC16F\1-Blink-LED-CCS-PIC16F887-877A\Proyecto\PIC16F887\Blink led.lst
 
-               ROM used:   76 words (1%)
+               ROM used:   71 words (1%)
                            Largest free fragment is 2048
                RAM used:   6 (2%) at main() level
                            7 (2%) worst case
@@ -12,136 +14,121 @@ CCS PCM C Compiler, Version 5.076, 56587               23-feb.-22 17:37
 *
 0000:  MOVLW  00
 0001:  MOVWF  0A
-0002:  GOTO   01F
+0002:  GOTO   018
 0003:  NOP
-.................... /* 
-.................... AUTOR: MICROSIDE TECHNOLOGY S.A. DE C.V. 
-.................... FECHA: JUNIO 2019 
-.................... */ 
-....................  
-.................... /* 
-.................... --------------------------------------------------------------------------- 
-.................... La práctica consiste en controlar el encendido y apagado del LED incluido 
-.................... en la tarjeta X-TRAINER 
-.................... --------------------------------------------------------------------------- 
-.................... */ 
-....................  
-.................... #include <16F887.h>                            //Incluye el microcontrolador con el que se va a trabajar  
-.................... //////////// Standard Header file for the PIC16F887 device //////////////// 
-.................... /////////////////////////////////////////////////////////////////////////// 
-.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          //// 
-.................... //// This source code may only be used by licensed users of the CCS C  //// 
-.................... //// compiler.  This source code may only be distributed to other      //// 
-.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
-.................... //// or distribution is permitted without written permission.          //// 
-.................... //// Derivative programs created using this software in object code    //// 
-.................... //// form are not restricted in any way.                               //// 
-.................... /////////////////////////////////////////////////////////////////////////// 
-.................... #device PIC16F887 
-....................  
-.................... #list 
-....................  
-.................... #use delay(clock=20Mhz, crystal)                //Tipo de oscilador y frecuencia dependiendo del microcontrolador  
-*
-000B:  MOVLW  22
-000C:  MOVWF  04
-000D:  BCF    03.7
-000E:  MOVF   00,W
-000F:  BTFSC  03.2
-0010:  GOTO   01E
-0011:  MOVLW  06
-0012:  MOVWF  78
-0013:  CLRF   77
-0014:  DECFSZ 77,F
-0015:  GOTO   014
-0016:  DECFSZ 78,F
-0017:  GOTO   013
-0018:  MOVLW  7B
-0019:  MOVWF  77
-001A:  DECFSZ 77,F
-001B:  GOTO   01A
-001C:  DECFSZ 00,F
-001D:  GOTO   011
-001E:  RETURN
-....................  
-....................  
-.................... #define LED PIN_A1                              //Pin donde está conectado el LED del X-TRAINER 
-....................  
-.................... void SisInit(void) 
-....................   { 
-....................       set_tris_a(0XFD);                         //Pin RA1 como salida 
-*
-0004:  MOVLW  FD
-0005:  BSF    03.5
-0006:  MOVWF  05
-0007:  BCF    03.5
-0008:  BCF    0A.3
-0009:  BCF    0A.4
-000A:  GOTO   034 (RETURN)
-....................   } 
-....................  
-.................... void main(void) 
-*
-001F:  MOVF   03,W
-0020:  ANDLW  1F
-0021:  MOVWF  03
-0022:  BSF    03.5
-0023:  BSF    03.6
-0024:  MOVF   09,W
-0025:  ANDLW  C0
-0026:  MOVWF  09
-0027:  BCF    03.6
-0028:  BCF    1F.4
-0029:  BCF    1F.5
-002A:  MOVLW  00
-002B:  BSF    03.6
-002C:  MOVWF  08
-002D:  BCF    03.5
-002E:  CLRF   07
-002F:  CLRF   08
-0030:  CLRF   09
-0031:  BCF    03.7
-....................  
-....................   { 
-....................      SisInit (); 
-0032:  BCF    03.6
-0033:  GOTO   004
-....................       
-....................      while(1) 
-....................  
-....................            { 
-....................                   output_HIGH (LED);            //Cambio de estado en el pin RA1 
-0034:  BSF    03.5
-0035:  BCF    05.1
-0036:  BCF    03.5
-0037:  BSF    05.1
-....................                   delay_ms (500);               //Retardo 
-0038:  MOVLW  02
-0039:  MOVWF  21
-003A:  MOVLW  FA
-003B:  MOVWF  22
-003C:  CALL   00B
-003D:  DECFSZ 21,F
-003E:  GOTO   03A
-....................                   output_LOW (LED);             //Cambio de estado en el pin RA1      
-003F:  BSF    03.5
-0040:  BCF    05.1
-0041:  BCF    03.5
-0042:  BCF    05.1
-....................                   delay_ms (500) ;              //Retardo 
-0043:  MOVLW  02
-0044:  MOVWF  21
-0045:  MOVLW  FA
-0046:  MOVWF  22
-0047:  CALL   00B
-0048:  DECFSZ 21,F
-0049:  GOTO   045
-004A:  GOTO   034
-....................            } 
-.................... } 
-....................  
-004B:  SLEEP
-....................   
+.................... /************************************************************************************************
+.................... Company:
+.................... Microside Technology Inc.
+.................... File Name:
+.................... Blink led.c
+.................... Product Revision  :  1
+.................... Device            :  X-TRAINER
+.................... Driver Version    :  1.0
+.................... ************************************************************************************************/
+.................... 
+.................... /*
+.................... ---------------------------------------------------------------------------
+.................... La práctica consiste en controlar el encendido y apagado del LED incluido
+.................... en la tarjeta X-TRAINER
+.................... ---------------------------------------------------------------------------
+.................... */
+.................... 
+.................... #include <16F887.h>                 //Incluye el microcontrolador con el que se va a trabajar 
+.................... //////////// Standard Header file for the PIC16F887 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC16F887
+.................... 
+.................... #list
+.................... 
+.................... #use delay(clock=20Mhz, crystal)    //Tipo de oscilador y frecuencia dependiendo del microcontrolador 
+0004:  MOVLW  22
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  06
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  7B
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETURN
+.................... 
+.................... #define LED PIN_A1                  //Pin donde está conectado el LED del X-TRAINER
+.................... 
+.................... void main(void) {
+0018:  MOVF   03,W
+0019:  ANDLW  1F
+001A:  MOVWF  03
+001B:  BSF    03.5
+001C:  BSF    03.6
+001D:  MOVF   09,W
+001E:  ANDLW  C0
+001F:  MOVWF  09
+0020:  BCF    03.6
+0021:  BCF    1F.4
+0022:  BCF    1F.5
+0023:  MOVLW  00
+0024:  BSF    03.6
+0025:  MOVWF  08
+0026:  BCF    03.5
+0027:  CLRF   07
+0028:  CLRF   08
+0029:  CLRF   09
+002A:  BCF    03.7
+....................    set_tris_a(0xFD);                //Pin RA1 como salida
+002B:  MOVLW  FD
+002C:  BSF    03.5
+002D:  BCF    03.6
+002E:  MOVWF  05
+....................      
+....................    while(1) {
+....................       output_HIGH (LED);            //Cambio de estado en el pin RA1
+002F:  BCF    05.1
+0030:  BCF    03.5
+0031:  BSF    05.1
+....................       delay_ms (500);               //Retardo
+0032:  MOVLW  02
+0033:  MOVWF  21
+0034:  MOVLW  FA
+0035:  MOVWF  22
+0036:  CALL   004
+0037:  DECFSZ 21,F
+0038:  GOTO   034
+....................       output_LOW (LED);             //Cambio de estado en el pin RA1     
+0039:  BSF    03.5
+003A:  BCF    05.1
+003B:  BCF    03.5
+003C:  BCF    05.1
+....................       delay_ms (500) ;              //Retardo
+003D:  MOVLW  02
+003E:  MOVWF  21
+003F:  MOVLW  FA
+0040:  MOVWF  22
+0041:  CALL   004
+0042:  DECFSZ 21,F
+0043:  GOTO   03F
+0044:  BSF    03.5
+0045:  GOTO   02F
+....................    }
+.................... }
+0046:  SLEEP
 
 Configuration Fuses:
    Word  1: 2FE2   HS NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
